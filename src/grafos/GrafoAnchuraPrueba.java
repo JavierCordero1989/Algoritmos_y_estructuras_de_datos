@@ -61,9 +61,6 @@ public class GrafoAnchuraPrueba
             
             System.out.println("Recorrido de Anchura:");
             GrafoMatriz.recorrerAnchura(gm, ver4.nomVertice());
-            
-            System.out.println("\nRecorrido de Profundidad:");
-            GrafoMatriz.recorrerProfundidad(gm, ver4.nomVertice());
         } 
         catch (Exception e1) 
         {

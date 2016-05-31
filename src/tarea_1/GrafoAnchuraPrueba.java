@@ -52,25 +52,25 @@ public class GrafoAnchuraPrueba
     
     public static void main(String[] args) 
     {
-        GrafoMatriz gm = new GrafoMatriz(10);
-        Random random = new Random(999);//Genera los mismos numeros siempre.
-        int[] numerosAleatorios = new int[10]; //Arreglo de enteros, donde se guardaran los numeros aletorios generados.
-        int numAleatorio; //Numero aleatorio que sera generado en cada pasada.
+        final int CANTIDAD_VERTICES = 10;
         
-        //Genera los numeros aleatorios y los guarda en un arreglo
-        for(int i=0; i<numerosAleatorios.length; i++)
+        GrafoMatriz gm = new GrafoMatriz(CANTIDAD_VERTICES);
+        int[] numerosAleatorios = new int[CANTIDAD_VERTICES]; //Arreglo de enteros, donde se guardaran los numeros aletorios generados.
+        int numeroAleatorio;
+        Random random = new Random(3);
+        
+        for(int contador=0; contador<numerosAleatorios.length; contador++)
         {
-            numAleatorio = 11 + random.nextInt(89);
+            numeroAleatorio = 11 + random.nextInt(89);
             
-            //Comprueba que el numero generado, no se encuentre ya en el arreglo.
-            while(comprobarRepeticion(numAleatorio, numerosAleatorios))
+            while(comprobarRepeticion(numeroAleatorio, numerosAleatorios))
             {
-                numAleatorio = 11 + random.nextInt(89);
+                numeroAleatorio = 11 + random.nextInt(89);
             }
             
-            numerosAleatorios[i] = numAleatorio; //Guarda el numero en el arreglo.
+            numerosAleatorios[contador] = numeroAleatorio;
         }
-        
+
         //Crea los vertices y les asigna el numero aleatorio del arreglo.
         for(int a : numerosAleatorios)
         {
@@ -105,8 +105,10 @@ public class GrafoAnchuraPrueba
             gm.imprimirVertices();
             gm.imprimir();//Imprime la matriz de adyacencia del grafo.
 
-            //GrafoMatriz.recorrerProfundidad(gm, gm.obtenerVertice(8).nomVertice());
-            //GrafoMatriz.recorrerAnchura(gm, gm.obtenerVertice(8).nomVertice());
+            System.out.println("Recorrido de profundidad: ");
+            GrafoMatriz.recorrerProfundidad(gm, gm.obtenerVertice(8).nomVertice());
+            System.out.println("\nRecorrido de anchura: ");
+            GrafoMatriz.recorrerAnchura(gm, gm.obtenerVertice(8).nomVertice());
         }
         catch(Exception ex)
         {
