@@ -6,7 +6,7 @@ import java.util.Random;
  * 
  * @author Javi Cordero
  */
-public class GrafoAnchuraPrueba 
+public class PruebaTarea 
 {
     /**
      * Este metodo recibe dos numeros enteros como parametro, ademas los suma
@@ -57,17 +57,39 @@ public class GrafoAnchuraPrueba
         GrafoMatriz gm = new GrafoMatriz(CANTIDAD_VERTICES);
         int[] numerosAleatorios = new int[CANTIDAD_VERTICES]; //Arreglo de enteros, donde se guardaran los numeros aletorios generados.
         int numeroAleatorio;
-        Random random = new Random(3);
+        Random random = new Random(3);//Numeros aleatorios generados con una semilla... Siempre genera los mismos valores
         
+        /**
+         * En el caso especifico de que los numeros aleatorios no se generen de
+         * la misma manera en otras computadoras con la semilla 3, se puede proceder
+         * a comentar las lineas 58 a la 60, y las lineas de la 80 a la 101, y descomentar
+         * las lineas de la 71 a la 77. Esto es para el caso de meter los numeros 
+         * de prueba, que fueron los que yo use con la semilla tres, que seran
+         * los mismos que estan guardados en el arreglo de la linea 70.
+         */
+        
+//        int[] numerosVertices = {89,29,69,68,79,62,74,77,14,38};
+//        
+//        for(int numero : numerosVertices)
+//        {
+//            Vertice vertice = new Vertice("" + numero);
+//            gm.nuevoVertice(vertice.nomVertice());
+//        }
+        
+        //Recorre diez veces, para generar numeros aleatorios
         for(int contador=0; contador<numerosAleatorios.length; contador++)
         {
+            //Genera un numero aleatorio entre 11 y 99
             numeroAleatorio = 11 + random.nextInt(89);
             
+            //Comprueba que el numero que se acaba de generar no se encuentre dentro del arreglo
             while(comprobarRepeticion(numeroAleatorio, numerosAleatorios))
             {
+                //Se vuelve a generar el numero hasta que este sea diferente a todos los numeros dentro del arreglo
                 numeroAleatorio = 11 + random.nextInt(89);
             }
             
+            //Se guarda el numero generado dentro del arreglo.
             numerosAleatorios[contador] = numeroAleatorio;
         }
 
@@ -102,11 +124,12 @@ public class GrafoAnchuraPrueba
                 }
             }
             
-            gm.imprimirVertices();
+            gm.imprimirVertices();//Imprime los vertices creados
             gm.imprimir();//Imprime la matriz de adyacencia del grafo.
 
             System.out.println("Recorrido de profundidad: ");
             GrafoMatriz.recorrerProfundidad(gm, gm.obtenerVertice(8).nomVertice());
+            
             System.out.println("\nRecorrido de anchura: ");
             GrafoMatriz.recorrerAnchura(gm, gm.obtenerVertice(8).nomVertice());
         }
@@ -115,4 +138,4 @@ public class GrafoAnchuraPrueba
             System.out.println("Error: " + ex);
         }
     }//Fin del metodo main.
-}//Fin de la clase GrafoAnchuraPrueba.
+}//Fin de la clase PruebaTarea.
