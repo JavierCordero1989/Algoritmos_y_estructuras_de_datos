@@ -56,5 +56,17 @@ public class Pruebas
         Shell.ordenarShell(arregloShell);
         Shell.imprimir(arregloShell);
         /*---------------------------------------------------------*/
+        
+        int arregloQuicksort[] = {79,21,15,99,88,65,75,85,76,46,84,24};
+        /*---------------------------------------------------------*/
+        /*---------------ORDENA POR QUICKSORT----------------------*/
+        Quicksort.mostrarMensaje("\nORDENAMIENTO POR QUICKSORT");
+        Quicksort.mostrarMensaje("Datos del arreglo desordenado");
+        Quicksort.imprimir(arregloQuicksort);
+        
+        Quicksort.mostrarMensaje("\nDatos del arreglo ya ordenado");
+        Quicksort.ordenarQuicksort(arregloQuicksort, 0, arregloQuicksort.length-1);
+        Quicksort.imprimir(arregloQuicksort);
+        /*---------------------------------------------------------*/
     }/*Fin del metodo main*/
 }/*Fin de la clase Pruebas*/
