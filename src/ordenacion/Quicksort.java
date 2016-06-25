@@ -13,6 +13,7 @@ public class Quicksort
     public static void ordenarQuicksort(int[] vector, int izq, int der)
     {
         int pivote = vector[izq]; //Tomamos el primer elemento como pivote.
+        System.out.println("Pivote: " + pivote);
         int i = izq; //i realiza la busqueda de izquierda a derecha.
         int d = der; //d realiza la busqueda de derecha a izquierda.
         int aux;
