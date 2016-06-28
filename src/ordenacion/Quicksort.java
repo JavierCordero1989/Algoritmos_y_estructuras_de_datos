@@ -10,6 +10,48 @@ public class Quicksort
     {
     }/*Fin del constructor.*/
     
+    public static void quick(int[] vector, int primero, int ultimo)
+    {
+        int i, j, central, pivote;
+        central = (primero + ultimo)/2;
+        System.out.println("Central: " + central);
+        
+        pivote = vector[central];
+        System.out.println("Pivote: " + pivote);
+        
+        i = primero;
+        j = ultimo;
+        
+        do
+        {
+            while(vector[i] < pivote)
+            {
+                i++;
+            }
+            while(vector[j] > pivote)
+            {
+                j--;
+            }
+            
+            if(i<=j)
+            {
+                int aux = vector[i];
+                vector[i] = vector[j];
+                vector[j] = aux;
+                i++;
+                j--;
+            }
+        }while(i <= j);
+        
+        if(primero < j)
+        {
+            quick(vector, primero, j);
+        }
+        if(i < ultimo)
+        {
+            quick(vector, i, ultimo);
+        }
+    }
     public static void ordenarQuicksort(int[] vector, int izq, int der)
     {
         int pivote = vector[izq]; //Tomamos el primer elemento como pivote.

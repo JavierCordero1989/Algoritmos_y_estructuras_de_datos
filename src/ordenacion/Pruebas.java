@@ -1,5 +1,7 @@
 package ordenacion;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Javi Cordero
@@ -57,16 +59,29 @@ public class Pruebas
 //        Shell.imprimir(arregloShell);
 //        /*---------------------------------------------------------*/
 //        
-        int arregloQuicksort[] = {79,21,15,99,88,65,75,85,76,46,84,24};
+//        int arregloQuicksort[] = {79,21,15,99,88,65,75,85,76,46,84,24};
+//        /*---------------------------------------------------------*/
+//        /*---------------ORDENA POR QUICKSORT----------------------*/
+//        Quicksort.mostrarMensaje("\nORDENAMIENTO POR QUICKSORT");
+//        Quicksort.mostrarMensaje("Datos del arreglo desordenado");
+//        Quicksort.imprimir(arregloQuicksort);
+//        
+//        Quicksort.mostrarMensaje("\nDatos del arreglo ya ordenado");
+//        Quicksort.quick(arregloQuicksort, 0, arregloQuicksort.length-1);
+//        Quicksort.imprimir(arregloQuicksort);
+//        /*---------------------------------------------------------*/
+        
+        int arregloMergesort[] = {79,21,15,99,88,65,75,85};
         /*---------------------------------------------------------*/
         /*---------------ORDENA POR QUICKSORT----------------------*/
-        Quicksort.mostrarMensaje("\nORDENAMIENTO POR QUICKSORT");
-        Quicksort.mostrarMensaje("Datos del arreglo desordenado");
-        Quicksort.imprimir(arregloQuicksort);
+        System.out.println("\nORDENAMIENTO POR MERGESORT");
+        System.out.println("Datos del arreglo desordenado");
+        System.out.println(Arrays.toString(arregloMergesort));
         
-        Quicksort.mostrarMensaje("\nDatos del arreglo ya ordenado");
-        Quicksort.ordenarQuicksort(arregloQuicksort, 0, arregloQuicksort.length-1);
-        Quicksort.imprimir(arregloQuicksort);
+        System.out.println("\nDatos del arreglo ya ordenado");
+        Merge merge = new Merge();
+        merge.MergeSort(arregloMergesort);
+        System.out.println(Arrays.toString(arregloMergesort));
         /*---------------------------------------------------------*/
     }/*Fin del metodo main*/
 }/*Fin de la clase Pruebas*/
